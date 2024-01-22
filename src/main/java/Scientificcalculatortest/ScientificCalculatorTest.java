@@ -66,9 +66,9 @@ public class ScientificCalculatorTest {
     public void TestCos(double num){
         assertEquals(Scientificcalculatorsorce.cosFunction(num),Math.cos(Math.toRadians(num)));
     }
-    @Test
+    @Test(dataProvider = "csvTestData2", groups = "Advanceoperations")
     public void TestTan(double num){
-        assertEquals(Scientificcalculatorsorce.tanFunction(num),Math.tan(Math.toRadians(num)));
+        assertEquals(Scientificcalculatorsorce.tanFunction(num),Scientificcalculatorsorce.tanchech(num));
     }
     // Method to collect data from CSV
     @DataProvider(name = "csvTestData")

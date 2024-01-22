@@ -87,4 +87,11 @@ public class Scientificcalculatorsorce {
          }
          return num1/num2;
     }
+    public static double tanchech(double angleInDegrees){
+        if(angleInDegrees==90){
+            return 0.0;
+        }
+
+        return Math.tan(Math.toRadians(angleInDegrees));
+    }
 }
