@@ -46,7 +46,7 @@ public class Scientificcalculatorsorce {
 
      public static double SquareRoot(double num) {
              try {
-                 if (num >= 0) {
+                 if (num <= 0) {
                      throw  new Exception();
                  }
                  return Math.sqrt(num);
@@ -80,5 +80,11 @@ public class Scientificcalculatorsorce {
            System.out.println("Tangent is undefined for this angle");
            return 0;
        }
+    }
+    public static double divchech(double num1,double num2){
+         if(num2==0.0){
+             return 0.0;
+         }
+         return num1/num2;
     }
 }

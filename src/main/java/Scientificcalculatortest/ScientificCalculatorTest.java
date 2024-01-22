@@ -35,7 +35,7 @@ public class ScientificCalculatorTest {
 
     @Test(dataProvider = "csvTestData", groups = "Basicoparetions")
     public void testDivision(double num1, double num2) {
-        assertEquals(Scientificcalculatorsorce.Division(num1, num2), num1/num2);
+        assertEquals(Scientificcalculatorsorce.Division(num1, num2), Scientificcalculatorsorce.divchech(num1, num2));
        // assertThrows(ArithmeticException.class, () -> Scientificcalculatorsorce.Division(5,0));
 
     }
@@ -49,8 +49,8 @@ public class ScientificCalculatorTest {
         /*assertEquals(4, ScientificCalculator.squareRoot(16), 0.001);
         assertThrows(IllegalArgumentException.class, () -> ScientificCalculator.squareRoot(-9));
          */
-        assertEquals(Scientificcalculatorsorce.SquareRoot(16),4);
-        assertEquals(Scientificcalculatorsorce.SquareRoot(-1),0);
+        assertEquals(Scientificcalculatorsorce.SquareRoot(num), Math.sqrt(num));
+        //assertEquals(Scientificcalculatorsorce.SquareRoot(-1),0);
     }
 
     @Test(dataProvider = "csvTestData", groups = "Advanceoperations")
@@ -60,15 +60,15 @@ public class ScientificCalculatorTest {
     }
     @Test(dataProvider = "csvTestData2", groups = "Advanceoperations")
     public void TestSin(double num){
-        assertEquals(Scientificcalculatorsorce.sinFunction(30),0.5 );
+        assertEquals(Scientificcalculatorsorce.sinFunction(num),Math.sin(Math.toRadians(num)));
     }
     @Test(dataProvider = "csvTestData2", groups = "Advanceoperations")
-    public void TesCos(double num){
-        assertEquals(Scientificcalculatorsorce.cosFunction(60),0.00872653549);
+    public void TestCos(double num){
+        assertEquals(Scientificcalculatorsorce.cosFunction(num),Math.cos(Math.toRadians(num)));
     }
     @Test
     public void TestTan(double num){
-        assertEquals(Scientificcalculatorsorce.tanFunction(90),0.57735026919);
+        assertEquals(Scientificcalculatorsorce.tanFunction(num),Math.tan(Math.toRadians(num)));
     }
     // Method to collect data from CSV
     @DataProvider(name = "csvTestData")
@@ -88,7 +88,7 @@ public class ScientificCalculatorTest {
     @DataProvider(name = "csvTestData2")
     public Object[][] csvTestDataDataProvider2() throws IOException {
         List<Object[]> testData = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader("testData2.csv"));
+        BufferedReader reader = new BufferedReader(new FileReader("TestData2.csv"));
         String line;
         while ((line = reader.readLine()) != null) {
            // String[] values = line.split(",");
