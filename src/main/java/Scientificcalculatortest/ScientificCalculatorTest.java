@@ -66,17 +66,17 @@ public class ScientificCalculatorTest {
         assertEquals(Scientificcalculatorsorce.Power(num1,num2),Math.pow(num1, num2));
         //assertEquals(9, ScientificCalculator.power(3, 2), 0.001);
     }
-    @Test(dataProvider = "csvTestData2", groups = "Advanceoperations")
-    public void TestSin(double num){
-        assertEquals(Scientificcalculatorsorce.sinFunction(num),Math.sin(Math.toRadians(num)));
+    @Test(dataProvider = "csvTestData3", groups = "Advanceoperations")
+    public void TestSin(double degree){
+        assertEquals(Scientificcalculatorsorce.sinFunction(degree),Math.sin(Math.toRadians(degree)));
     }
-    @Test(dataProvider = "csvTestData2", groups = "Advanceoperations")
-    public void TestCos(double num){
-        assertEquals(Scientificcalculatorsorce.cosFunction(num),Math.cos(Math.toRadians(num)));
+    @Test(dataProvider = "csvTestData3", groups = "Advanceoperations")
+    public void TestCos(double degree){
+        assertEquals(Scientificcalculatorsorce.cosFunction(degree),Math.cos(Math.toRadians(degree)));
     }
-    @Test(dataProvider = "csvTestData2", groups = "Advanceoperations")
-    public void TestTan(double num){
-        assertEquals(Scientificcalculatorsorce.tanFunction(num),Scientificcalculatorsorce.tanchech(num));
+    @Test(dataProvider = "csvTestData3", groups = "Advanceoperations")
+    public void TestTan(double degree){
+        assertEquals(Scientificcalculatorsorce.tanFunction(degree),Scientificcalculatorsorce.tanchech(degree));
     }
     // Method to collect data from CSV
     @DataProvider(name = "csvTestData")
@@ -86,9 +86,9 @@ public class ScientificCalculatorTest {
         String line;
         while ((line = reader.readLine()) != null) {
             String[] values = line.split(",");
-            double num1 = Double.parseDouble(values[0]);
-            double num2 = Double.parseDouble(values[1]);
-            testData.add(new Object[]{num1, num2});
+            double number1 = Double.parseDouble(values[0]);
+            double number2 = Double.parseDouble(values[1]);
+            testData.add(new Object[]{number1, number2});
         }
         reader.close();
         return testData.toArray(new Object[0][0]);
@@ -102,6 +102,19 @@ public class ScientificCalculatorTest {
             String value= line;
             double num = Double.parseDouble(value);
             testData.add(new Object[]{num});
+        }
+        reader.close();
+        return testData.toArray(new Object[0][0]);
+    }
+    @DataProvider(name = "csvTestData3")
+    public Object[][] csvTestDataDataProvider3() throws IOException {
+        List<Object[]> testData = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader("TestData3.csv"));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String value= line;
+            double degree = Double.parseDouble(value);
+            testData.add(new Object[]{degree});
         }
         reader.close();
         return testData.toArray(new Object[0][0]);
