@@ -1,39 +1,46 @@
 package Scientificcalculatortest;
 
 import Scincecalculator.Scientificcalculatorsorce;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
+import org.testng.annotations.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertThrows;
 
+
 public class ScientificCalculatorTest {
-    @Test(dataProvider = "csvTestData", groups = "Basicoparetions")
+    @BeforeMethod
+    public void Load(){
+        System.out.println("Test Execution Start.. ");
+    }
+    @AfterMethod
+    public void close(){
+        System.out.println(" Test Execution Ends..");
+    }
+
+    @Test(dataProvider = "csvTestData", groups = "Basicoperations")
     public void testAddition(double num1, double num2) {
         assertEquals(Scientificcalculatorsorce.Addition(num1, num2), num1+num2);
     }
-    @Test()
+    @Test
     public void NegitivetestAddition() {
         assertEquals(Scientificcalculatorsorce.Addition('c', 5), 0.0);
     }
 
-    @Test(dataProvider = "csvTestData", groups = "Basicoparetions")
+    @Test(dataProvider = "csvTestData", groups = "Basicoperations")
     public void testSubtraction(double num1, double num2) {
         assertEquals(Scientificcalculatorsorce.Subtraction(num1,num2), num1-num2);
     }
 
-    @Test(dataProvider = "csvTestData", groups = "Basicoparetions")
+    @Test(dataProvider = "csvTestData", groups = "Basicoperations")
     public void testMultiplication(double num1, double num2) {
         assertEquals(Scientificcalculatorsorce.Multiplication(num1, num2),num1*num2 );
     }
 
-    @Test(dataProvider = "csvTestData", groups = "Basicoparetions")
+    @Test(dataProvider = "csvTestData", groups = "Basicoperations")
     public void testDivision(double num1, double num2) {
         assertEquals(Scientificcalculatorsorce.Division(num1, num2), Scientificcalculatorsorce.divchech(num1, num2));
        // assertThrows(ArithmeticException.class, () -> Scientificcalculatorsorce.Division(5,0));
@@ -41,6 +48,7 @@ public class ScientificCalculatorTest {
     }
     @Test
     public  void negitivetestdivision(){
+
         assertEquals(Scientificcalculatorsorce.Division(8,0),0);
     }
 
@@ -91,11 +99,8 @@ public class ScientificCalculatorTest {
         BufferedReader reader = new BufferedReader(new FileReader("TestData2.csv"));
         String line;
         while ((line = reader.readLine()) != null) {
-           // String[] values = line.split(",");
             String value= line;
             double num = Double.parseDouble(value);
-           // double num2 = Double.parseDouble(values[1]);
-            //testData.add(new Object[]{num1, num2});
             testData.add(new Object[]{num});
         }
         reader.close();
