@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="/home/knoldus/IdeaProjects/ScientificCalculator"><classes><class name="Scientificcalculatortest.ScientificCalculatorTest"><methods><include name="testAddition"/><include name="testSubtraction"/><include name="testMultiplication"/><include name="testDivision"/><include name="testSquareRoot"/><include name="testPower"/></methods></class></classes></test></suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="methods" thread-count="2">
+    <test verbose="2" preserve-order="true" name="/home/knoldus/IdeaProjects/ScientificCalculator">
+        <classes><class name="Scientificcalculatortest.ScientificCalculatorTest">
+            <methods><include name="testAddition"/>
+                <include name="testSubtraction"/>
+                <include name="testMultiplication"/>
+                <include name="testDivision"/>
+                <include name="testSquareRoot"/>
+                <include name="testPower"/>
+            </methods>
+        </class>
+        </classes>
+    </test>
+</suite>
