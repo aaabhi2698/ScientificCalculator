@@ -81,13 +81,13 @@ public class Scientificcalculatorsorce {
            return 0;
        }
     }
-    public static double divchech(double num1,double num2){
+    public static double divcheck(double num1,double num2){
          if(num2==0.0){
              return 0.0;
          }
          return num1/num2;
     }
-    public static double tanchech(double angleInDegrees){
+    public static double tancheck(double angleInDegrees){
         if(angleInDegrees==90){
             return 0.0;
         }

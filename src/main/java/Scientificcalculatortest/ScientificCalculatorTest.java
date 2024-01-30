@@ -27,7 +27,7 @@ public class ScientificCalculatorTest {
     }
     @Test
     public void NegitivetestAddition() {
-        assertEquals(Scientificcalculatorsorce.Addition('c', 5), 0.0);
+        assertEquals(Scientificcalculatorsorce.Addition('1', 5), 0.0);
     }
 
     @Test(dataProvider = "csvTestData", groups = "Basicoperations")
@@ -42,7 +42,7 @@ public class ScientificCalculatorTest {
 
     @Test(dataProvider = "csvTestData", groups = "Basicoperations")
     public void testDivision(double num1, double num2) {
-        assertEquals(Scientificcalculatorsorce.Division(num1, num2), Scientificcalculatorsorce.divchech(num1, num2));
+        assertEquals(Scientificcalculatorsorce.Division(num1, num2), Scientificcalculatorsorce.divcheck(num1, num2));
        // assertThrows(ArithmeticException.class, () -> Scientificcalculatorsorce.Division(5,0));
 
     }
@@ -76,7 +76,7 @@ public class ScientificCalculatorTest {
     }
     @Test(dataProvider = "csvTestData3", groups = "Advanceoperations")
     public void TestTan(double degree){
-        assertEquals(Scientificcalculatorsorce.tanFunction(degree),Scientificcalculatorsorce.tanchech(degree));
+        assertEquals(Scientificcalculatorsorce.tanFunction(degree),Scientificcalculatorsorce.tancheck(degree));
     }
     // Method to collect data from CSV
     @DataProvider(name = "csvTestData")
